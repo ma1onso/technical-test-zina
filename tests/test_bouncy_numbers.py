@@ -2,8 +2,8 @@ import random
 
 from unittest import TestCase, mock
 
-from main import find_percentage_proportion, increasing_number, decreasing_number
-from main import convert_integer_to_list, bouncy_number, proportion_bouncy_numbers
+from src.bouncy_numbers import find_percentage_proportion, increasing_number, decreasing_number
+from src.bouncy_numbers import convert_integer_to_list, bouncy_number, proportion_bouncy_numbers
 
 class BouncyNumberTestCase(TestCase):
     def test_find_percentage_proportion(self):
@@ -23,8 +23,8 @@ class BouncyNumberTestCase(TestCase):
         self.assertTrue(decreasing_number(convert_integer_to_list(9933)))
         self.assertFalse(decreasing_number(convert_integer_to_list(76326)))
 
-    @mock.patch('main.decreasing_number', autospec=True)
-    @mock.patch('main.increasing_number', autospec=True)
+    @mock.patch('src.bouncy_numbers.decreasing_number', autospec=True)
+    @mock.patch('src.bouncy_numbers.increasing_number', autospec=True)
     def test_bouncy_number(self, mock_increasing_number, mock_decreasing_number):
         mock_increasing_number.return_value = False
         mock_decreasing_number.return_value = False
