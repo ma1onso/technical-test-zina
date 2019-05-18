@@ -5,7 +5,7 @@ def find_percent_proportion(expected_percentage):
             percentage <- 0
             number <- 99
             bouncy_numbers <- 0
-            WHILE percentage EQUAL expected_percentage
+            WHILE percentage NOT EQUAL expected_percentage
                 number <- number + 1
                 
                 IF bouncy_number ( convert_integer_to_list ( number ) ) IS TRUE
