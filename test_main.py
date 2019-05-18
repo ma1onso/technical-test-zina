@@ -7,7 +7,7 @@ from main import convert_integer_to_list, bouncy_number, proportion_bouncy_numbe
 
 class BouncyNumberTestCase(TestCase):
     def test_find_percent_proportion(self):
-        self.assertEqual(tuple, type(find_percent_proportion(10)))
+        self.assertEqual(tuple, type(find_percent_proportion(15)))
 
     def test_fifty_find_percent_proportion(self):
         self.assertEqual(find_percent_proportion(50)[0], 538)
