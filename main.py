@@ -31,6 +31,7 @@ def find_percent_proportion(expected_percentage):
     print('{0} least number for which the proportion of bouncy numbers is {1}%'.format(
         number, percentage
     ))
+    return number, percentage
 
 
 def increasing_number(numbers_list):
@@ -57,6 +58,7 @@ def increasing_number(numbers_list):
 
     return True
 
+
 def decreasing_number(numbers_list):
     """ Algorithm: decreasing_number
 
@@ -79,6 +81,7 @@ def decreasing_number(numbers_list):
 
     return True
 
+
 def bouncy_number(numbers_list):
     """ Algorithm: bouncy_number
     numbers_list <- INTEGER LIST
@@ -93,7 +96,8 @@ def bouncy_number(numbers_list):
         return True
 
     return False
-
+ 
+ 
 def convert_integer_to_list(number):
     """ Algorithm: convert_integer_to_list
     number <- INTEGER
@@ -103,6 +107,7 @@ def convert_integer_to_list(number):
     END
     """
     return list(map(int, str(number)))
+
 
 def proportion_bouncy_numbers(numbers, bouncy_numbers):
     """ Algorithm: proportion_bouncy_numbers
