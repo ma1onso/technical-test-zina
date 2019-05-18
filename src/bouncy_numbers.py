@@ -9,7 +9,7 @@ def find_percentage_proportion(expected_percentage=99):
     number = 99
     bouncy_numbers = 0
 
-    while percentage != expected_percentage:
+    while percentage < expected_percentage and percentage != expected_percentage:
         number = number + 1
 
         if bouncy_number(convert_integer_to_list(number)) is True:
