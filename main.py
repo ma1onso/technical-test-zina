@@ -1,9 +1,8 @@
 import sys
 
 # TODO: set docstrings
-# TODO: change for more descriptive name
-def find_percent_proportion(expected_percentage=99):
-    """ Algorithm: find_percent_proportion
+def find_percentage_proportion(expected_percentage=99):
+    """ Algorithm: find_percentage_proportion
         expected_percentage <- VALUE FROM 1 TO 100
         START
             percentage <- 0
@@ -137,12 +136,10 @@ def proportion_bouncy_numbers(numbers, bouncy_numbers):
 
 if __name__ == "__main__":
     try:
-        number, percentage = find_percent_proportion(int(sys.argv[1]))
+        number, percentage = find_percentage_proportion(int(sys.argv[1]))
     except IndexError:
-        number, percentage = find_percent_proportion()
+        number, percentage = find_percentage_proportion()
 
     print('{number} least number for which the proportion of bouncy numbers is {percentage}%'.format(
         number=number, percentage=percentage
     ))
-
-# TODO: complete README
