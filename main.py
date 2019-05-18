@@ -115,3 +115,7 @@ def proportion_bouncy_numbers(numbers, bouncy_numbers):
     END
     """
     return (bouncy_numbers * 100) / numbers
+
+
+if __name__ == "__main__":
+    find_percent_proportion(99)
