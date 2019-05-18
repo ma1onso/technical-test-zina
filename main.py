@@ -125,6 +125,9 @@ def proportion_bouncy_numbers(numbers, bouncy_numbers):
     if numbers <= 0:
         raise ValueError('numbers variable must be greater than zero')
 
+    if bouncy_numbers > numbers:
+        raise ValueError('Not is possible that bouncy numbers must be greater than numbers')
+
     return (bouncy_numbers * 100) / numbers
 
 

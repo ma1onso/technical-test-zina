@@ -2,7 +2,8 @@ import random
 
 from unittest import TestCase, mock
 
-from main import find_percent_proportion, increasing_number, decreasing_number, convert_integer_to_list, bouncy_number
+from main import find_percent_proportion, increasing_number, decreasing_number
+from main import convert_integer_to_list, bouncy_number, proportion_bouncy_numbers
 
 class BouncyNumberTestCase(TestCase):
     def test_fifty_percent_proportion(self):
@@ -42,3 +43,10 @@ class BouncyNumberTestCase(TestCase):
 
     def test_values_convert_integer_to_list(self):
         self.assertRaises(ValueError, convert_integer_to_list, -19293)
+
+    def test_proportion_bouncy_numbers(self):
+        self.assertEqual(10, proportion_bouncy_numbers(100, 10))
+
+    def test_values_proportion_bouncy_numbers(self):
+        self.assertRaises(ValueError, proportion_bouncy_numbers, 0, 100)
+        self.assertRaises(ValueError, proportion_bouncy_numbers, 10, 100)
