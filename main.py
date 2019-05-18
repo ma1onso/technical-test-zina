@@ -28,9 +28,6 @@ def find_percent_proportion(expected_percentage):
 
             percentage = proportion_bouncy_numbers(number, bouncy_numbers)
 
-    print('{0} least number for which the proportion of bouncy numbers is {1}%'.format(
-        number, percentage
-    ))
     return number, percentage
 
 
@@ -106,6 +103,12 @@ def convert_integer_to_list(number):
         RETURN LIST
     END
     """
+    if not type(number) in [int]:
+        raise TypeError('number must be a integer')
+
+    if number < 0:
+        raise ValueError('The number cannot be negative')
+
     return list(map(int, str(number)))
 
 
@@ -119,8 +122,16 @@ def proportion_bouncy_numbers(numbers, bouncy_numbers):
         RETURN percentage
     END
     """
+    if numbers <= 0:
+        raise ValueError('numbers variable must be greater than zero')
+
     return (bouncy_numbers * 100) / numbers
 
 
 if __name__ == "__main__":
-    find_percent_proportion(99)
+    # TODO: received dynamic parameter
+    number, percentage = find_percent_proportion(99)
+
+    print('{number} least number for which the proportion of bouncy numbers is {percentage}%'.format(
+        number=number, percentage=percentage
+    ))
