@@ -6,10 +6,13 @@ from main import find_percent_proportion, increasing_number, decreasing_number
 from main import convert_integer_to_list, bouncy_number, proportion_bouncy_numbers
 
 class BouncyNumberTestCase(TestCase):
-    def test_fifty_percent_proportion(self):
+    def test_find_percent_proportion(self):
+        self.assertEqual(tuple, type(find_percent_proportion(10)))
+
+    def test_fifty_find_percent_proportion(self):
         self.assertEqual(find_percent_proportion(50)[0], 538)
 
-    def test_ninety_percent_proportion(self):
+    def test_ninety_find_percent_proportion(self):
         self.assertEqual(find_percent_proportion(90)[0], 21780)
 
     def test_increasing_number(self):
