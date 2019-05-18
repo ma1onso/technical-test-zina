@@ -1,23 +1,12 @@
 import sys
 
-# TODO: set docstrings
+
 def find_percentage_proportion(expected_percentage=99):
-    """ Algorithm: find_percentage_proportion
-        expected_percentage <- VALUE FROM 1 TO 100
-        START
-            percentage <- 0
-            number <- 99
-            bouncy_numbers <- 0
-            WHILE percentage NOT EQUAL expected_percentage
-                number <- number + 1
-                
-                IF bouncy_number ( convert_integer_to_list ( number ) ) IS TRUE
-                    bouncy_numbers <- bouncy_numbers + 1
+    """ Stop when find expected percentage proportion for bounty numbers
 
-                    percentage <- proportion_bouncy_numbers( number, bouncy_numbers )
-
-            PRINT "NUMBER" + number + "PERCENTAGE" + percentage
-        END
+    :param int expected_percentage: expected porcentage
+    :return: number and percentage for bounty numbers
+    :rtype: tuple
     """
     percentage = 0
     number = 99
@@ -34,24 +23,20 @@ def find_percentage_proportion(expected_percentage=99):
     return number, percentage
 
 
-def increasing_number(numbers_list):
-    """ Algorithm: increasing_number
+def increasing_number(numbers):
+    """ Working from left-to-right if no digit is exceeded by the digit to
+    its left it is called an increasing number; for example, 134468
 
-    numbers_list <- INTEGER LIST
-    START
-        LOOP OVER numbers_list REVERSE
-            IF not current_number GREATER than or EQUAL to nex_number
-                RETURN FALSE
-
-        RETURN TRUE
-    END
+    :param list numbers: split number into a list
+    :return: True if number is increasing, False if not
+    :rtype: bool
     """
     index = 0
     # Reverse list
-    numbers_list = numbers_list[::-1]
+    numbers = numbers[::-1]
 
-    for number in numbers_list:
-        if len(numbers_list) - 1 > index and not number >= numbers_list[index + 1]:
+    for number in numbers:
+        if len(numbers) - 1 > index and not number >= numbers[index + 1]:
             return False
 
         index += 1
@@ -59,22 +44,18 @@ def increasing_number(numbers_list):
     return True
 
 
-def decreasing_number(numbers_list):
-    """ Algorithm: decreasing_number
+def decreasing_number(numbers):
+    """ Working from left-to-right if no digit is exceeded by the digit to its
+    right it is called a decreasing number; for example, 66420
 
-    numbers_list <- INTEGER LIST
-    START
-        LOOP OVER numbers_list
-            IF not current_number GREATER than or EQUAL to nex_number
-                RETURN FALSE
-
-        RETURN TRUE
-    END
+    :param list numbers: split number into a list
+    :return: True if number is decreasing, False if not
+    :rtype: bool
     """
     index = 0
 
-    for number in numbers_list:
-        if len(numbers_list) - 1 > index and not number >= numbers_list[index + 1]:
+    for number in numbers:
+        if len(numbers) - 1 > index and not number >= numbers[index + 1]:
             return False
 
         index += 1
@@ -82,29 +63,26 @@ def decreasing_number(numbers_list):
     return True
 
 
-def bouncy_number(numbers_list):
-    """ Algorithm: bouncy_number
-    numbers_list <- INTEGER LIST
-    START
-        IF increasing_number IS FALSE AND decreasing_number IS FALSE
-            RETURN TRUE
+def bouncy_number(numbers):
+    """ We shall call a positive integer that is neither increasing nor
+     decreasing a "bouncy" number; for example, 155349
 
-        RETURN FALSE
-    END
+    :param list numbers: split number into a list
+    :return: True if number is bouncy, False otherwise
+    :rtype: bool
     """
-    if increasing_number(numbers_list) is False and decreasing_number(numbers_list) is False:
+    if increasing_number(numbers) is False and decreasing_number(numbers) is False:
         return True
 
     return False
  
  
 def convert_integer_to_list(number):
-    """ Algorithm: convert_integer_to_list
-    number <- INTEGER
-    START
-        CONVERT number TO LIST
-        RETURN LIST
-    END
+    """ Convert positive integer to list. Example 859 -> [8, 5, 9]
+
+    :param int number: positive integer
+    :return: number split in a list
+    :rtype: list
     """
     if not type(number) in [int]:
         raise TypeError('number must be a integer')
@@ -115,23 +93,21 @@ def convert_integer_to_list(number):
     return list(map(int, str(number)))
 
 
-def proportion_bouncy_numbers(numbers, bouncy_numbers):
-    """ Algorithm: proportion_bouncy_numbers
-    numbers <- INTEGER
-    bouncy_numbers <- INTEGER
-    START
-        percentage <- (bouncy_numbers * 100) / numbers
+def proportion_bouncy_numbers(number, bouncy_numbers):
+    """ Calculate percentage for proportion of bouncy numbers
 
-        RETURN percentage
-    END
+    :param int number: current positive integer number
+    :param int bouncy_numbers: quantity of bouncy numbers discovered
+    :return: percentage
+    :rtype: float
     """
-    if numbers <= 0:
-        raise ValueError('numbers variable must be greater than zero')
+    if number <= 0:
+        raise ValueError('number variable must be greater than zero')
 
-    if bouncy_numbers > numbers:
-        raise ValueError('Not is possible that bouncy numbers must be greater than numbers')
+    if bouncy_numbers > number:
+        raise ValueError('Not is possible that bouncy numbers must be greater than number')
 
-    return (bouncy_numbers * 100) / numbers
+    return (bouncy_numbers * 100) / number
 
 
 if __name__ == "__main__":
